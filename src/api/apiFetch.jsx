@@ -2,24 +2,34 @@ import { useEffect, useState } from "react";
 import { apiCon } from "./apiConfig";
 
 export function apiFetch(url) {
-  const [data, setData] = useState([]);
+  const [items, setItems] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   fetch(apiCon.baseUrl + url + apikey)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setData(data.articles);
+  //     })
+  //     .catch((err) => {
+  //     });
+  // }, []);
 
   useEffect(() => {
     const apikey = "&apiKey=" + apiCon.apiKey;
     fetch(apiCon.baseUrl + url + apikey)
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => {
-        setData(data.articles);
-        setIsPending(false);
         setError(null);
+        setIsPending(false);
+        setItems(data.articles);
       })
       .catch((err) => {
-        setIsPending(false);
         setError(err.message);
+        setIsPending(false);
       });
   }, []);
 
-  return { data, isPending, error };
+  return { items, isPending, error };
 }

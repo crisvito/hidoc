@@ -1,33 +1,38 @@
 // import axios from "axios";
 // import { useEffect } from "react";
 // import { CardArticles } from "../../components";
+import { useState, useEffect } from "react";
 import { apiFetch } from "../../api";
 
 export function ArtikelTerbaru() {
-  const { data, isPending, error } = apiFetch(
-    "top-headlines?country=id&category=health"
-  );
+  // const { items, isPending, error } = apiFetch(
+  //   "top-headlines?country=id&category=health"
+  // );
+  // console.log(items);
 
-  // useEffect(() => {
-  //   async function getApi() {
-  //     const item = await axios.get(
-  //       "https://newsapi.org/v2/top-headlines?country=id&category=health$apiKey=b1156ab2feed4129a1d9292b28e5e494"
-  //     );
-  //     console.log(item);
-  //   }
-  //   getApi();
-  // }, []);
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    fetch(
+      "https://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=b1156ab2feed4129a1d9292b28e5e494"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setItems(data.articles);
+      });
+  }, []);
+  console.log(items);
 
   return (
     <>
-      {isPending && <span className="uppercase font-bold">Loading...</span>}
-      {error && <span className="uppercase font-bold">Terjadi Kesalahan</span>}
+      {/* {isPending && <span className="uppercase font-bold">Loading...</span>} */}
+      {/* {error && <span className="uppercase font-bold">Terjadi Kesalahan</span>} */}
       <div className="md:px-32 px-10 my-8">
         <h1 className="text-2xl text-slate-800">Artikel Terbaru</h1>
         <div className="mt-10">
           <div className="bg-white">
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-              {data.map((data, i) => (
+              {items.map((data, i) => (
                 <a
                   href={`/artikel/${data.publishedAt}`}
                   key={i}
