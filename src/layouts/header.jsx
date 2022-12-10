@@ -43,7 +43,7 @@ export function Header() {
             <OutlineLinkButton
               children="Masuk"
               className="px-5"
-              path="./login"
+              path="/login"
             />
           </div>
         </div>

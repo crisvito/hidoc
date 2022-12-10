@@ -1,32 +1,14 @@
-// import axios from "axios";
-// import { useEffect } from "react";
-// import { CardArticles } from "../../components";
-import { useState, useEffect } from "react";
 import { apiFetch } from "../../api";
 
 export function ArtikelTerbaru() {
-  // const { items, isPending, error } = apiFetch(
-  //   "top-headlines?country=id&category=health"
-  // );
-  // console.log(items);
-
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://newsapi.org/v2/top-headlines?country=id&category=health&apiKey=b1156ab2feed4129a1d9292b28e5e494"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setItems(data.articles);
-      });
-  }, []);
-  console.log(items);
+  const { items, isPending, error } = apiFetch(
+    "top-headlines?country=id&category=health"
+  );
 
   return (
     <>
-      {/* {isPending && <span className="uppercase font-bold">Loading...</span>} */}
-      {/* {error && <span className="uppercase font-bold">Terjadi Kesalahan</span>} */}
+      {isPending && <span className="uppercase font-bold">Loading...</span>}
+      {error && <span className="uppercase font-bold">Terjadi Kesalahan</span>}
       <div className="md:px-32 px-10 my-8">
         <h1 className="text-2xl text-slate-800">Artikel Terbaru</h1>
         <div className="mt-10">

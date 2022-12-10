@@ -6,7 +6,8 @@ import {
   Artikel,
   ArtikelDetail,
   // Kesehatan,
-  // TanyaDokter,
+  TanyaDetail,
+  TanyaDokter,
   Login,
 } from "../routes";
 import { Error } from ".";
@@ -20,7 +21,8 @@ export function RouteConfig() {
       {/* <Route path="/kesehatan" element={<Kesehatan />} /> */}
       <Route path="/penyakit" element={<Penyakit />} />
       <Route path="/penyakit/:penyakit" element={<PenyakitDetail />} />
-      {/* <Route path="/tanya-dokter" element={<TanyaDokter />} /> */}
+      <Route path="/tanya-dokter" element={<TanyaDokter />} />
+      <Route path="/tanya-dokter/:tanya" element={<TanyaDetail />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<Error />} />
     </Routes>
