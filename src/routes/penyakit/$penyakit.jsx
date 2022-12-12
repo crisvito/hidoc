@@ -4,7 +4,7 @@ import { useTitle } from "../../hooks";
 
 export function PenyakitDetail() {
   const { penyakit } = useParams();
-  useTitle(penyakit);
+  useTitle("penyakit");
 
   return <Layout>{penyakit}</Layout>;
 }

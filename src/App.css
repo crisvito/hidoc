@@ -17,4 +17,10 @@
   .active {
     @apply text-blue-900 font-bold;
   }
+  ul {
+    @apply pl-10;
+  }
+  li {
+    @apply list-disc;
+  }
 }

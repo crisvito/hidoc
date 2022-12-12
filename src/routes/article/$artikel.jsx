@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export function ArtikelDetail() {
   const { artikel } = useParams();
-  const [items, setItems] = useState < any > null;
+  const [items, setItems] = useState(null);
 
   const { data, isPending, error } = apiFetch(
     "top-headlines?country=id&category=health"
@@ -14,7 +14,7 @@ export function ArtikelDetail() {
   useEffect(() => {
     const dataFilter = data.filter((data) => data.publishedAt === artikel);
     setItems(dataFilter[0]);
-  }, [data]);
+  }, []);
 
   return (
     <Layout>
