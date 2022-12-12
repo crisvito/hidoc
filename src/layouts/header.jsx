@@ -22,11 +22,11 @@ export function Header() {
           )}
         </div>
         <div
-          className={`flex flex-1 fixed top-0 z-50 flex-col gap-5 duration-500 bg-slate-800 w-8/12 h-full px-14 py-10 text-white md:w-1/2 lg:text-black lg:p-0 lg:bg-transparent lg:flex-row lg:justify-between lg:gap-0 lg:static ${
+          className={`flex flex-1 fixed top-0 z-50 flex-col gap-5 duration-500 bg-slate-800 w-8/12 h-full px-10 py-10 text-white md:w-1/2 lg:text-black lg:p-0 lg:bg-transparent lg:flex-row lg:justify-between lg:gap-0 lg:static ${
             open ? "left-0" : "left-[2000px]"
           }`}
         >
-          <ul className="flex flex-col gap-5 lg:gap-20 lg:flex-row">
+          <ul className="flex flex-col gap-5 lg:gap-20 lg:flex-row p-0">
             {NavMenu.map((menu, i) => {
               return (
                 <Link

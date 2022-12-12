@@ -42,12 +42,12 @@ export function TanyaDetail() {
               {items.detailQuestion}
             </p>
           </div>
-          <div className="p-3  border-2 border-gray-300 sm:w-3/4 w-full rounded">
+          <div className="md:p-3 p-0 sm:mt-0 mt-5 sm:border-2 border-0 border-gray-300 sm:w-3/4 w-full rounded">
             <h4 className="text-sm font-medium text-gray-700 tracking-widest">
               Dijawab oleh :
             </h4>
-            <div className="p-5 pt-0">
-              <div className="flex mt-10 items-center justify-between">
+            <div className="sm:p-5 p-0 pt-0">
+              <div className="flex sm:mt-10 mt-5 items-center justify-between">
                 <div className="flex items-center gap-5">
                   <User size={50} className="md:inline-flex hidden" />
                   <h3>{items.answerBy}</h3>

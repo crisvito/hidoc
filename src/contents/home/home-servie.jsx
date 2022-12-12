@@ -13,11 +13,11 @@ export function HomeService() {
                 key={layanan.id}
                 className="group rounded-lg flex flex-col gap-4"
               >
-                <div className="h-3/4 rounded-md group-hover:opacity-75">
+                <div className="h-3/4 rounded-md group-hover:opacity-75 bg-black">
                   <img
                     src={layanan.imageSrc}
                     alt={layanan.imageAlt}
-                    className="h-full w-full object-cover object-center"
+                    className="h-full w-full object-cover object-center rounded-lg"
                   />
                 </div>
                 <h3 className="text-sm text-gray-700 font-medium text-center">
