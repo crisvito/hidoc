@@ -13,7 +13,10 @@ export function Header() {
   return (
     <div className="shadow-lg py-1 block w-full">
       <nav className="flex justify-between items-center my-4 mx-5 lg:mx-10  lg:space-x-20">
-        <h1 className="font-bold text-2xl uppercase">hidoc</h1>
+        <h1 className="font-bold text-2xl uppercase">
+          {/* <img src="/assets/logo/main.png" alt="HIDOC" className="w-20" /> */}
+          HIDOC
+        </h1>
         <div className="lg:hidden">
           {open ? (
             <X size={32} weight="bold" onClick={() => setOpen(false)} />

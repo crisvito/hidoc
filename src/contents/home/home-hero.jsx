@@ -2,7 +2,7 @@ import { Button } from "../../components";
 
 export function HomeHero() {
   return (
-    <div className="bg-gradient-to-b from-blue-700 to-blue-300 flex justify-center pt-5 h-96 lg:px-32 px-20">
+    <div className="bg-gradient-to-b from-blue-700 to-blue-200 flex justify-center pt-5 h-96 lg:px-32 px-20 gap-5">
       <div className="self-center lg:text-left text-center flex flex-col gap-5 items-center lg:items-start">
         <h1 className="md:text-4xl text-2xl text-white tracking-wide">
           Solusi Kesehatan Terlengkap
@@ -16,8 +16,12 @@ export function HomeHero() {
           className="bg-blue-900 lg:w-5/12 md:w-2/5 w-3/4 py-3"
         />
       </div>
-      <div className="lg:inline-flex hidden">
-        <img src="/assets/img/homehero.png" alt="err" />
+      <div className="lg:inline-flex w-3/5  hidden">
+        <img
+          src="/assets/logo/home-hero.png"
+          alt="err"
+          className="w-full rounded-lg"
+        />
       </div>
     </div>
   );

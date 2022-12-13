@@ -2,7 +2,7 @@ export const FooterMenu = [
   [
     {
       display: "Beranda",
-      path: "",
+      path: "/",
     },
     {
       display: "Hubungi Kami",
@@ -36,10 +36,6 @@ export const FooterMenu = [
     },
   ],
   [
-    {
-      display: "Promo",
-      path: "",
-    },
     {
       display: "Media",
       path: "",
