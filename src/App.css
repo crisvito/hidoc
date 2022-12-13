@@ -17,10 +17,13 @@
   .active {
     @apply text-blue-800 font-bold;
   }
-  ul {
+  .tanya-dokter .tanya-content ul {
     @apply pl-10;
   }
-  li {
+  .tanya-dokter .tanya-content li {
     @apply list-disc;
+  }
+  .artikel-detail .artikel-content h1 {
+    @apply md:text-2xl text-xl font-medium tracking-widest py-4 text-blue-900;
   }
 }
