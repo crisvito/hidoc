@@ -11,11 +11,11 @@ export function Header() {
   const active = NavMenu.findIndex((e) => "/" + e.path === pathname);
 
   return (
-    <div className="shadow-lg py-1 block w-full">
-      <nav className="flex justify-between items-center my-4 mx-5 lg:mx-10  lg:space-x-20">
+    <div className="shadow-lg py-1 w-full sticky top-0 z-30 bg-white">
+      <nav className="flex justify-between items-center my-3 mx-5 lg:mx-10  lg:space-x-20">
         <h1 className="font-bold text-2xl uppercase">
-          {/* <img src="/assets/logo/main.png" alt="HIDOC" className="w-20" /> */}
-          HIDOC
+          <img src="/assets/logo/main.jpeg" alt="HIDOC" className="w-20" />
+          {/* HIDOC */}
         </h1>
         <div className="lg:hidden">
           {open ? (
