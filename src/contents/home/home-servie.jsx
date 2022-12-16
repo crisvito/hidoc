@@ -3,7 +3,7 @@ import { layanans } from "../../data";
 
 export function HomeService() {
   return (
-    <div className="mt-8 py-8 border-t-2 border-blue-500">
+    <div className="mt-8 py-8 sm:px-9 px-7 border-t-2 border-blue-500">
       <h1 className="sm:text-2xl text-lg text-blue-900 dark:text-blue-500 tracking-widest font-medium">
         Layanan Kesehatan
       </h1>

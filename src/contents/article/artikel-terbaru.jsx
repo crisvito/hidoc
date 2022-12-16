@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function ArtikelTerbaru() {
   return (
-    <div className="mt-8">
+    <div className="mt-8 sm:px-9 px-7">
       <h1 className="text-2xl">Artikel Terbaru</h1>
       <div className="mt-10 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         {dataArticle.map((data) => (
