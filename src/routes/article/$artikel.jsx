@@ -10,8 +10,8 @@ export function ArtikelDetail() {
 
   return (
     <Layout>
-      <div className="sm:p-10 p-5 md:pl-20">
-        <div className="artikel-detail p-10 flex flex-col gap-8 bg-white dark:bg-transparent rounded-lg shadow-lg">
+      <div className="sm:p-10 md:pl-20 p-0">
+        <div className="artikel-detail py-10 sm:p-6 md:p-10 flex flex-col gap-8 sm:bg-white bg-transparent dark:bg-transparent rounded-lg sm:shadow-lg">
           <span className="flex sm:flex-row flex-col sm:items-center items-start gap-6 justify-between">
             <div className="flex items-center gap-3 text-blue-500">
               <ArrowLeft size={30} />
