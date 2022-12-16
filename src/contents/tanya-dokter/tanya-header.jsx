@@ -7,7 +7,7 @@ export function TanyaHeader() {
         <div className="flex md:flex-row flex-col justify-between md:items-end items-start gap-5">
           <div className="tracking-widest leading-loose">
             <h1 className="font-medium text-2xl uppercase">Tanya Dokter</h1>
-            <span className="text-gray-600 font-medium text-sm">
+            <span className="text-gray-600 dark:text-neutral-300 font-medium text-sm">
               Bertanya seputar kesehatan yang dapat membantu anda
             </span>
           </div>

@@ -4,8 +4,10 @@ import { Layout } from "../../layouts";
 export function TanyaDokter() {
   return (
     <Layout>
-      <TanyaHeader />
-      <TanyaList />
+      <div className="dark:bg-transparent bg-white my-10 shadow-lg rounded-lg">
+        <TanyaHeader />
+        <TanyaList />
+      </div>
     </Layout>
   );
 }

@@ -5,7 +5,9 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      <RouteConfig />
+      <div className="flex flex-col min-h-screen bg-neutral-100 dark:bg-slate-900 dark:text-white">
+        <RouteConfig />
+      </div>
     </BrowserRouter>
   );
 }

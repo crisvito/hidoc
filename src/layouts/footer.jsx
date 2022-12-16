@@ -3,17 +3,19 @@ import { FooterMenu } from "../data";
 
 export function Footer() {
   return (
-    <div className="flex justify-center bg-blue-500">
-      <div className="flex flex-col w-10/12">
-        <div className="flex lg:flex-row flex-col lg:gap-20 gap-10 py-16 text-white">
-          <h1 className="lg:text-start text-center font-bold lg:text-2xl md:text-xl text-lg">
-            HIDOC
-          </h1>
-          <div className="flex sm:flex-row flex-col w-full sm:items-start sm:gap-0 gap-5 items-center justify-center">
+    <div className="border-t-2 bg-white dark:bg-slate-800 mt-8">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div className="flex lg:flex-row flex-col lg:gap-20 gap-10 py-16">
+          <img
+            src="/assets/logo/main.png"
+            alt="Hidoc Company"
+            className="h-16 w-32 sm:self-start self-center"
+          />
+          <div className="flex sm:flex-row flex-col w-full sm:items-start gap-7 items-center justify-center">
             {FooterMenu.map((menu, i) => {
               return (
                 <div
-                  className="flex sm:flex-col flex-row justify-center flex-wrap gap-7 font-medium w-full tracking-widest"
+                  className="flex sm:flex-col flex-row justify-center flex-wrap gap-6 font-medium w-full tracking-widest sm:border-t border-0 border-blue-800 pt-3"
                   key={i}
                 >
                   {menu.map((m, i) => {
@@ -28,8 +30,8 @@ export function Footer() {
             })}
           </div>
         </div>
-        <div className="border-t-2 py-5">
-          <span className="text-white tracking-widest font-medium">
+        <div className="border-t-2 py-5 border-blue-800">
+          <span className="tracking-widest font-medium">
             Hak Cipta © 2022 hidoc
           </span>
         </div>

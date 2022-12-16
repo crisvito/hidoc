@@ -17,7 +17,7 @@ export function TanyaList() {
           />
         </div>
         <div className="py-10 flex justify-between items-start">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-12">
             {dataPertanyaan.map((item, i) => {
               return (
                 <div
