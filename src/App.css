@@ -24,7 +24,10 @@
     @apply list-disc;
   }
   .artikel-detail .artikel-content h1 {
-    @apply md:text-2xl text-xl font-medium tracking-widest py-4 text-blue-900;
+    @apply md:text-2xl text-xl font-medium tracking-widest py-4 text-blue-900 dark:text-blue-500;
+  }
+  .artikel-detail .artikel-content div p {
+    @apply py-5;
   }
   .artikel-detail .artikel-content ul {
     @apply pl-10 py-3;
