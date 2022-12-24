@@ -8,10 +8,6 @@ export const NavMenu = [
     display: "Artikel",
   },
   {
-    path: "penyakit",
-    display: "Penyakit",
-  },
-  {
     path: "tanya-dokter",
     display: "Tanya Dokter",
   },
