@@ -35,4 +35,14 @@
   .artikel-detail .artikel-content li {
     @apply list-disc;
   }
+  .avatar a {
+    @apply block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100;
+  }
+  .auth input {
+    @apply block w-full px-4 py-2 text-gray-700 bg-white border border-solid border-gray-300 rounded
+    duration-300 focus:bg-white focus:border-blue-600 focus:outline-none;
+  }
+  .auth .login-button {
+    @apply py-3 font-semibold tracking-wide text-xs uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg transition duration-150 ease-in-out md:w-full w-3/4 flex justify-start pl-6 items-center mb-3 gap-4 text-left;
+  }
 }

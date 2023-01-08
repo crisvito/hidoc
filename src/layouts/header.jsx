@@ -1,11 +1,11 @@
+import { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { NavMenu } from "../data";
-import { useState, useEffect, useRef, useContext } from "react";
-import { List, X, Sun, Moon } from "phosphor-react";
-import { OutlineLinkButton } from "../components";
-import { AuthContext } from "../context";
-import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
+import { AuthContext } from "../context";
+import { List, X, Sun, Moon } from "phosphor-react";
+import { NavMenu } from "../data";
+import { OutlineLinkButton } from "../components";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -13,18 +13,12 @@ export function Header() {
   const [theme, setTheme] = useState(
     localStorage.getItem("mode") === "dark" ? true : false
   );
-
   const { pathname } = useLocation();
-
   const active = NavMenu.findIndex((e) => "/" + e.path === pathname);
-  const headRef = useRef(null);
 
   useEffect(() => {
-    if (localStorage.getItem("mode") === "dark") {
-      document.documentElement.classList.add("dark");
-    } else if (theme === false) {
-      document.documentElement.classList.remove("dark");
-    }
+    if (theme) document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
   }, [theme]);
 
   const { currentUser } = useContext(AuthContext);
@@ -33,14 +27,9 @@ export function Header() {
     signOut(auth);
   }
   return (
-    <div
-      className="flex justify-center items-center shadow w-full sticky top-0 z-30 bg-white dark:bg-slate-800 font-medium"
-      ref={headRef}
-    >
+    <div className="flex justify-center items-center shadow w-full sticky top-0 z-30 bg-white dark:bg-slate-800 font-medium">
       <nav className="w-full flex justify-between items-center my-3 mx-6 lg:space-x-20">
-        <h1 className="font-bold text-2xl uppercase">
-          <img src="/assets/logo/main.png" alt="HIDOC" className="w-20" />
-        </h1>
+        <img src="/assets/logo/main.png" alt="HIDOC" className="w-20" />
         <div className="lg:hidden">
           {open ? (
             <X size={32} weight="bold" onClick={() => setOpen(false)} />
@@ -68,44 +57,26 @@ export function Header() {
           </ul>
           <div className="flex items-center gap-5">
             {currentUser ? (
-              <div>
-                <div className="relative ml-3 ">
-                  <button
-                    type="button"
-                    className="flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-800"
-                    onClick={() => setAvatar(!avatar)}
-                  >
-                    <img
-                      className="h-8 w-8 rounded-full bg-cover"
-                      src={currentUser.photoURL}
-                      alt={currentUser.displayName}
-                    />
-                  </button>
-
-                  <div
-                    className={`absolute md:right-0 -right-100 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transform ease-out duration-100 opacity-0 scale-95 ${
-                      avatar ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                    }`}
-                  >
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
-                    >
-                      Your Profile
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
-                    >
-                      Settings
-                    </a>
-                    <a
-                      onClick={handleSignOut}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100"
-                    >
-                      Sign out
-                    </a>
-                  </div>
+              <div className="relative">
+                <button
+                  type="button"
+                  className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  onClick={() => setAvatar(!avatar)}
+                >
+                  <img
+                    className="h-8 w-8 rounded-full"
+                    src={currentUser.photoURL ? "" : "/assets/logo/icon.png"}
+                    alt={currentUser.displayName}
+                  />
+                </button>
+                <div
+                  className={`avatar absolute lg:right-0 -right-100 z-10 mt-2 w-48 rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transform ease-out duration-100 opacity-0 scale-95 ${
+                    avatar ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                  }`}
+                >
+                  <a>Your Profile</a>
+                  <a>Settings</a>
+                  <a onClick={handleSignOut}>Sign out</a>
                 </div>
               </div>
             ) : (
@@ -118,7 +89,6 @@ export function Header() {
             {theme ? (
               <Sun
                 size={34}
-                weight="fill"
                 onClick={() => {
                   setTheme(false);
                   localStorage.setItem("mode", "light");
@@ -127,12 +97,10 @@ export function Header() {
             ) : (
               <Moon
                 size={34}
-                weight="fill"
                 onClick={() => {
-                  localStorage.setItem("mode", "dark");
                   setTheme(true);
+                  localStorage.setItem("mode", "dark");
                 }}
-                className="text-gray-500"
               />
             )}
           </div>

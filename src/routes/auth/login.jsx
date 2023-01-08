@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
   FacebookAuthProvider,
 } from "firebase/auth";
-import { Button } from "../components";
-import { AuthContext } from "../context";
+import { Button } from "../../components";
+import { AuthContext } from "../../context";
 
 export function Login() {
   const [error, setError] = useState(false);
@@ -40,14 +40,14 @@ export function Login() {
 
   return (
     <div className="flex justify-center">
-      <div className="lg:w-1/5 md:w-2/5 w-3/4 py-6 h-full">
-        <Link
-          className="absolute left-10 top-10 text-blue-900 font-bold"
-          to="/"
-        >
+      <div className="md:w-1/5 w-3/4 py-6 h-full">
+        <Link className="absolute left-5 top-5 text-blue-900 font-bold" to="/">
           back to home
         </Link>
-        <form className="flex flex-col items-center" onSubmit={handleLogin}>
+        <form
+          className="auth flex flex-col items-center"
+          onSubmit={handleLogin}
+        >
           <img src="/assets/logo/main.png" alt="hidoc" className="py-5" />
           {error && (
             <span className="block w-full font-semibold text-center text-gray-800 bg-red-200 w-full mb-5 px-4 py-2 rounded text-xs tracking-wider">
@@ -57,8 +57,6 @@ export function Login() {
           <div className="mb-6">
             <input
               type="email"
-              className="block w-full px-4 py-2 text-gray-700 bg-white border border-solid border-gray-300 rounded
-                duration-300 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -66,7 +64,6 @@ export function Login() {
           <div className="mb-6">
             <input
               type="password"
-              className="block w-full px-4 py-2 text-gray-700 bg-white border border-solid border-gray-300 rounded duration-300 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -74,13 +71,17 @@ export function Login() {
           <Button
             type="submit"
             children="Sign in"
-            className="px-7 md:w-full w-1/2 uppercase text-sm"
+            className="px-7 uppercase text-sm w-full"
           />
-          <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-            <p className="text-center font-medium mx-4 mb-0">OR</p>
-          </div>
+          <span className="mt-2 text-xs tracking-wider">
+            Sudah Daftar?{" "}
+            <Link to="/register" className="text-blue-900 font-semibold">
+              Daftar Sekarang
+            </Link>
+          </span>
+          <p className="text-center font-medium mx-4 my-4">OR</p>
           <button
-            className="px-7 py-3 text-black bg-white font-semibold text-xs uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg transition duration-150 ease-in-out md:w-full w-3/4 flex justify-center items-center mb-3 gap-5"
+            className="login-button"
             type="button"
             onClick={handleFacebook}
           >
@@ -88,8 +89,7 @@ export function Login() {
             Continue with Google
           </button>
           <button
-            type="button"
-            className="px-7 py-3 text-left text-white font-semibold text-xs uppercase rounded bg-blue-900 shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg gap-5 md:w-full w-3/4 flex justify-center items-center"
+            className="login-button bg-blue-900 text-white"
             onClick={handleFacebook}
           >
             <img src="/fb.png" alt="facebook" className="w-8" />

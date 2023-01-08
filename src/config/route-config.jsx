@@ -6,6 +6,7 @@ import {
   TanyaDetail,
   TanyaDokter,
   Login,
+  Register,
 } from "../routes";
 import { Error } from ".";
 import { useContext } from "react";
@@ -18,7 +19,7 @@ export function RouteConfig() {
     return currentUser ? children : <Navigate to="/login" />;
   };
 
-  const PublicRoute = ({ children }) => {
+  const Logged = ({ children }) => {
     return currentUser ? <Navigate to="/" /> : children;
   };
   return (
@@ -31,9 +32,17 @@ export function RouteConfig() {
       <Route
         path="/login"
         element={
-          <PublicRoute>
+          <Logged>
             <Login />
-          </PublicRoute>
+          </Logged>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <Logged>
+            <Register />
+          </Logged>
         }
       />
       <Route path="*" element={<Error />} />
