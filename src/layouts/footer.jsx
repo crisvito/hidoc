@@ -3,7 +3,7 @@ import { FooterMenu } from "../data";
 
 export function Footer() {
   return (
-    <div className="border-t-2 bg-white dark:bg-slate-800 mt-8">
+    <div className="border-t-2 bg-white dark:bg-slate-800 pt-8">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex lg:flex-row flex-col lg:gap-20 gap-10 py-16">
           <img
