@@ -6,7 +6,7 @@ export function HomeHero() {
       <div className="flex justify-between gap-5">
         <div className="self-center lg:text-left text-center flex flex-col gap-5 items-center lg:items-start">
           <h1 className="md:text-4xl text-2xl tracking-wide text-blue-900 dark:text-blue-500">
-            Solusi Kesehatan Terlengkap
+            Solusi Kesehatan Terlengkap diBalikpapan
           </h1>
           <p className="tracking-wide leading-loose md:text-lg text-base">
             Chat dokter, kunjungi rumah sakit, beli obat, cek lab dan update
