@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { AuthContext } from "../context";
@@ -14,6 +14,7 @@ export function Header() {
     localStorage.getItem("mode") === "dark" ? true : false
   );
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const active = NavMenu.findIndex((e) => "/" + e.path === pathname);
 
   useEffect(() => {
@@ -24,7 +25,13 @@ export function Header() {
   const { currentUser } = useContext(AuthContext);
 
   function handleSignOut() {
-    signOut(auth);
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   return (
     <div className="flex justify-center items-center shadow w-full sticky top-0 z-30 bg-white dark:bg-slate-800 font-medium">

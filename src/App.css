@@ -8,12 +8,16 @@
   body {
     font-family: "poppins", sans-serif;
   }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 @layer components {
   .nav-text {
     @apply lg:text-base text-lg tracking-wide;
   }
-
   .active {
     @apply text-blue-800 dark:text-blue-500 font-bold;
   }
@@ -44,5 +48,11 @@
   }
   .auth .login-button {
     @apply py-3 font-semibold tracking-wide text-xs uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg transition duration-150 ease-in-out md:w-full w-3/4 flex justify-start pl-6 items-center mb-3 gap-4 text-left;
+  }
+  .auth label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+  .auth #kecamatan {
+    @apply mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm;
   }
 }
