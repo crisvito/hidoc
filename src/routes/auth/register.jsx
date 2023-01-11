@@ -23,6 +23,8 @@ export function Register() {
         );
         await setDoc(doc(db, "users", res.user.uid), {
           ...data,
+          as: "warga",
+          photoURL: null,
           timeStamp: serverTimestamp(),
         });
         navigate("/login");
@@ -54,20 +56,15 @@ export function Register() {
             <div className="bg-white px-4 py-5 sm:p-6">
               <div className="grid grid-cols-6 gap-6">
                 <div className="col-span-6 sm:col-span-3">
-                  <label htmlFor="nama-depan">Nama Depan</label>
-                  <input
-                    type="text"
-                    name="nama-depan"
-                    id="nama-depan"
-                    required
-                  />
+                  <label htmlFor="namaDepan">Nama Depan</label>
+                  <input type="text" name="namaDepan" id="namaDepan" required />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
-                  <label htmlFor="nama-belakang">Nama Belakang</label>
+                  <label htmlFor="namaBelakang">Nama Belakang</label>
                   <input
                     type="text"
-                    name="nama-belakang"
-                    id="nama-belakang"
+                    name="namaBelakang"
+                    id="namaBelakang"
                     required
                   />
                 </div>
@@ -92,8 +89,8 @@ export function Register() {
                   </select>
                 </div>
                 <div className="col-span-6">
-                  <label htmlFor="alamat-rumah">Alamat Rumah</label>
-                  <input type="text" name="alamat-rumah" />
+                  <label htmlFor="alamatRumah">Alamat Rumah</label>
+                  <input type="text" name="alamatRumah" />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
                   <label htmlFor="password">Password</label>

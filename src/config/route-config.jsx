@@ -7,6 +7,7 @@ import {
   TanyaDokter,
   Login,
   Register,
+  Profile,
 } from "../routes";
 import { Error } from ".";
 import { useContext } from "react";
@@ -25,6 +26,14 @@ export function RouteConfig() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route
+        path="/profile"
+        element={
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+        }
+      />
       <Route path="/artikel" element={<Artikel />} />
       <Route path="/artikel/:artikel" element={<ArtikelDetail />} />
       <Route path="/tanya-dokter" element={<TanyaDokter />} />
