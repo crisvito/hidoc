@@ -4,11 +4,11 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
 export function useUser() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    async function getData() {
+    const getData = async () => {
       const q = query(
         collection(db, "users"),
         where("email", "==", currentUser.email)
@@ -18,8 +18,8 @@ export function useUser() {
       querySnapshot.forEach((doc) => {
         setData(doc.data());
       });
-    }
-    if (currentUser) getData();
+    };
+    getData();
   }, []);
 
   return { data };

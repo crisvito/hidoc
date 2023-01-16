@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "../../hooks/useUser";
 
 export function Profile() {
   const { data } = useUser();
@@ -9,6 +9,12 @@ export function Profile() {
       <div className="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto my-28">
         <Link to="/" className="absolute top-5 left-5 font-bold text-blue-900">
           Home
+        </Link>
+        <Link
+          to="/profile/edit"
+          className="absolute top-5 right-5 font-bold text-blue-900"
+        >
+          Edit
         </Link>
         <div className="flex justify-center">
           <img
@@ -38,39 +44,18 @@ export function Profile() {
             <h3 className="font-medium text-gray-900 text-left px-6">
               Biodata
             </h3>
-            <div className="mt-5 w-full flex flex-col items-center overflow-hidden text-sm">
+            <div className="biodata">
               <div className="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
-                <img
-                  src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                  alt=""
-                  className="rounded-full h-6 shadow-md inline-block mr-2"
-                />
-                Kecamatan : <span className="font-bold">{data.kecamatan}</span>
+                Kecamatan : <span>{data.kecamatan}</span>
               </div>
               <div className="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
-                <img
-                  src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                  alt=""
-                  className="rounded-full h-6 shadow-md inline-block mr-2"
-                />
-                Alamat Rumah :
-                <span className="font-bold">{data.alamatRumah}</span>
+                Alamat Rumah :<span>{data.alamatRumah}</span>
               </div>
               <div className="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
-                <img
-                  src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                  alt=""
-                  className="rounded-full h-6 shadow-md inline-block mr-2"
-                />
-                Email : <span className="font-bold">{data.email}</span>
+                Email : <span>{data.email}</span>
               </div>
               <div className="w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 w-full block hover:bg-gray-100 transition duration-150">
-                <img
-                  src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                  alt=""
-                  className="rounded-full h-6 shadow-md inline-block mr-2"
-                />
-                Sebagai : <span className="font-bold">{data.as}</span>
+                Sebagai : <span>{data.as}</span>
               </div>
             </div>
           </div>

@@ -8,6 +8,7 @@ import {
   Login,
   Register,
   Profile,
+  EditProfile,
 } from "../routes";
 import { Error } from ".";
 import { useContext } from "react";
@@ -31,6 +32,14 @@ export function RouteConfig() {
         element={
           <RequireAuth>
             <Profile />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/profile/edit"
+        element={
+          <RequireAuth>
+            <EditProfile />
           </RequireAuth>
         }
       />
