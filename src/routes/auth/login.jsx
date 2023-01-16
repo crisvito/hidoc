@@ -40,7 +40,7 @@ export function Login() {
 
   return (
     <div className="flex justify-center">
-      <div className="md:w-1/5 w-3/4 py-6 h-full">
+      <div className="sm:w-1/2 md:w-1/4 w-3/4 py-6 h-full">
         <Link className="absolute left-5 top-5 text-blue-900 font-bold" to="/">
           back to home
         </Link>
@@ -68,11 +68,13 @@ export function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <Button
-            type="submit"
-            children="Sign in"
-            className="px-7 uppercase text-sm w-full"
-          />
+          <div className="mb-5">
+            <Button
+              type="submit"
+              children="Sign in"
+              className="px-7 uppercase text-sm w-full"
+            />
+          </div>
           <span className="mt-2 text-xs tracking-wider">
             Sudah Daftar?{" "}
             <Link to="/register" className="text-blue-900 font-semibold">

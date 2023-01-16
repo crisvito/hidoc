@@ -24,7 +24,7 @@ export function Register() {
         await setDoc(doc(db, "users", res.user.uid), {
           ...data,
           as: "warga",
-          photoURL: null,
+          photoURL: "",
           timeStamp: serverTimestamp(),
         });
         navigate("/login");
@@ -90,7 +90,12 @@ export function Register() {
                 </div>
                 <div className="col-span-6">
                   <label htmlFor="alamatRumah">Alamat Rumah</label>
-                  <input type="text" name="alamatRumah" />
+                  <input
+                    type="text"
+                    name="alamatRumah"
+                    id="alamatRumah"
+                    required
+                  />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
                   <label htmlFor="password">Password</label>

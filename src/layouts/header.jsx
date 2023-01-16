@@ -1,8 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
 import { AuthContext } from "../context";
-import { signOut } from "firebase/auth";
 import { List, X, Sun, Moon } from "phosphor-react";
 import { NavMenu } from "../data";
 import { OutlineLinkButton } from "../components";
@@ -28,13 +26,7 @@ export function Header() {
   }, [theme]);
 
   function handleSignOut() {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    localStorage.setItem("user", null);
   }
 
   return (
@@ -81,13 +73,22 @@ export function Header() {
                   />
                 </button>
                 <div
-                  className={`avatar -right-100 ${
-                    avatar ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                  }`}
+                  className={`${
+                    avatar ? "fixed bg-transparent inset-0 z-50" : ""
+                  } `}
+                  onClick={() => setAvatar(!avatar)}
                 >
-                  <Link to="/profile">Your Profile</Link>
-                  <a>Settings</a>
-                  <a onClick={handleSignOut}>Sign out</a>
+                  <div
+                    className={`avatar  ${
+                      avatar ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                    }`}
+                  >
+                    <Link to="/profile">Your Profile</Link>
+                    <a>Settings</a>
+                    <a onClick={handleSignOut} href="/">
+                      Sign out
+                    </a>
+                  </div>
                 </div>
               </div>
             ) : (
