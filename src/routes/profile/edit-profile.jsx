@@ -4,8 +4,9 @@ import { kecamatan } from "../../data";
 import { useState, useEffect, useContext } from "react";
 import { Button } from "../../components";
 import { doc, updateDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db, storage } from "../../firebase";
 import { AuthContext } from "../../context";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 export function EditProfile() {
   const { data } = useUser();
@@ -17,7 +18,8 @@ export function EditProfile() {
     alamatRumah: "",
     kecamatan: "",
   });
-  const [fileDataURL, setFileDataURL] = useState(null);
+  const [file, setFile] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     setUser({
@@ -29,11 +31,41 @@ export function EditProfile() {
     });
   }, [data]);
 
-  const handleImg = (e) => {
-    const src = URL.createObjectURL(e.target.files[0]);
-    setFileDataURL(src);
-    setUser({ ...user, photoURL: e.target.value });
-  };
+  useEffect(() => {
+    const uploadFile = () => {
+      const newName = new Date().getTime() + file.name;
+      const storageRef = ref(storage, newName);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
+            default:
+              break;
+          }
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setUser((prev) => ({ ...prev, photoURL: downloadURL }));
+          });
+        }
+      );
+    };
+    file && uploadFile();
+  }, [file]);
 
   const handleInput = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -45,6 +77,7 @@ export function EditProfile() {
     await updateDoc(userDoc, user);
     navigate("/profile");
   };
+
   return (
     <div className="bg-blue-100">
       <div className="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto my-28">
@@ -57,8 +90,8 @@ export function EditProfile() {
         <div className="flex justify-center">
           <img
             src={
-              fileDataURL
-                ? fileDataURL
+              file
+                ? URL.createObjectURL(file)
                 : data.photoURL
                 ? data.photoURL
                 : "/default_profile.png"
@@ -70,6 +103,7 @@ export function EditProfile() {
 
         <div className="mt-16">
           <div className="w-full biodata">
+            {/* {error && <span>{error}</span>} */}
             <div className="edit">
               <form onSubmit={handleUpdate}>
                 <div>
@@ -79,7 +113,7 @@ export function EditProfile() {
                     name="photoURL"
                     accept=".png, .jpg, .jpeg"
                     value={user?.photoURL}
-                    onChange={handleImg}
+                    onChange={(e) => setFile(e.target.files[0])}
                     multiple
                   />
                 </div>
