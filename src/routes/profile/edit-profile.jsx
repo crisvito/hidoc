@@ -34,7 +34,7 @@ export function EditProfile() {
   useEffect(() => {
     const uploadFile = () => {
       const newName = new Date().getTime() + file.name;
-      const storageRef = ref(storage, newName);
+      const storageRef = ref(storage, `avatar/${newName}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
@@ -54,12 +54,10 @@ export function EditProfile() {
               break;
           }
         },
-        (error) => {
-          console.log(error);
-        },
+        (error) => setError(error.message),
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setUser((prev) => ({ ...prev, photoURL: downloadURL }));
+            setUser({ ...user, photoURL: downloadURL, photoName: file.name });
           });
         }
       );
@@ -103,7 +101,7 @@ export function EditProfile() {
 
         <div className="mt-16">
           <div className="w-full biodata">
-            {/* {error && <span>{error}</span>} */}
+            {error && <span>{error}</span>}
             <div className="edit">
               <form onSubmit={handleUpdate}>
                 <div>
@@ -112,7 +110,6 @@ export function EditProfile() {
                     type="file"
                     name="photoURL"
                     accept=".png, .jpg, .jpeg"
-                    value={user?.photoURL}
                     onChange={(e) => setFile(e.target.files[0])}
                     multiple
                   />
