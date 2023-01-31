@@ -32,8 +32,9 @@ export function Login() {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
+        console.log(user);
         dispatch({ type: "LOGIN", payload: user });
-        navigate("/");
+        navigate("/register/provider");
       })
       .catch(() => setError(true));
   }

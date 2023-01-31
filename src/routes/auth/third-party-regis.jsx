@@ -1,38 +1,32 @@
 import { Link, useNavigate } from "react-router-dom";
 import { serverTimestamp, setDoc, doc } from "firebase/firestore";
-import { auth, db } from "../../firebase";
+import { db } from "../../firebase";
 import { kecamatan } from "../../data";
 import { Button } from "../../components";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context";
 
-export function Register() {
+export function RegisterProvider() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
 
   async function handleAdd(e) {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    if (data.password === data.confirmPassword) {
-      console.log("mantap");
-      try {
-        const res = await createUserWithEmailAndPassword(
-          auth,
-          data.email,
-          data.password
-        );
-        await setDoc(doc(db, "users", res.user.uid), {
-          ...data,
-          uid: res.user.uid,
-          as: "warga",
-          photoURL: "",
-          timeStamp: serverTimestamp(),
-        });
-        navigate("/login");
-      } catch (err) {
-        setError(err.message);
-      }
-    } else setError("konfirmasi password tidak sesuai");
+    try {
+      await setDoc(doc(db, "users", currentUser.uid), {
+        ...data,
+        uid: currentUser.uid,
+        email: currentUser.email,
+        as: "warga",
+        photoURL: currentUser.photoURL,
+        timeStamp: serverTimestamp(),
+      });
+      navigate("/login");
+    } catch (err) {
+      setError(err.message);
+    }
   }
   return (
     <div className="mt-10 sm:mt-0 mb-10 flex flex-col items-center w-full">
@@ -40,15 +34,9 @@ export function Register() {
         <div className="px-4 sm:px-0 flex sm:flex-row flex-col sm:items-center py-7 sm:gap-10 gap-3 items-start">
           <img src="/assets/logo/main.png" alt="hidoc" className="w-32" />
           <div>
-            <h3 className="text-lg font-medium leading-6 text-gray-900">
-              Registrasi akun
-            </h3>
             <p className="mt-1 text-sm text-gray-600">
-              Dalam regristrasi semua input wajib di isi. Sudah Daftar?
+              Dalam regristrasi semua input wajib di isi
             </p>
-            <Link to="/login" className="font-bold mt-1 text-blue-900 text-sm">
-              Masuk Sekarang
-            </Link>
           </div>
         </div>
         <form onSubmit={handleAdd}>
@@ -68,10 +56,6 @@ export function Register() {
                     id="namaBelakang"
                     required
                   />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                  <label htmlFor="email">Alamat Email</label>
-                  <input type="email" name="email" id="email" required />
                 </div>
                 <div className="col-span-6 sm:col-span-3">
                   <label htmlFor="phone">Nomor Telepon</label>
@@ -95,24 +79,6 @@ export function Register() {
                     type="text"
                     name="alamatRumah"
                     id="alamatRumah"
-                    required
-                  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    required
-                  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                  <label htmlFor="confirmPassword">Konfirmasi Password</label>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    id="confirmPassword"
                     required
                   />
                 </div>

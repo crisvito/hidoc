@@ -7,15 +7,19 @@ import {
   TanyaDokter,
   Login,
   Register,
+  RegisterProvider,
   Profile,
   EditProfile,
+  DetailLayanan,
 } from "../routes";
 import { Error } from ".";
 import { useContext } from "react";
 import { AuthContext } from "../context";
+import { useUser } from "../hooks/useUser";
 
 export function RouteConfig() {
   const { currentUser } = useContext(AuthContext);
+  const { data } = useUser();
 
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
@@ -23,6 +27,14 @@ export function RouteConfig() {
 
   const Logged = ({ children }) => {
     return currentUser ? <Navigate to="/" /> : children;
+  };
+
+  const LoggedProvider = ({ children }) => {
+    return currentUser.providerData ? children : <Navigate to="/" />;
+  };
+
+  const Admin = ({ children }) => {
+    return data.as === "admin" ? children : <Navigate to="/" />;
   };
   return (
     <Routes>
@@ -43,6 +55,15 @@ export function RouteConfig() {
           </RequireAuth>
         }
       />
+      <Route
+        path="/dashboard"
+        element={
+          <Admin>
+            <DetailLayanan />
+          </Admin>
+        }
+      />
+      <Route path="/:layanan" element={<DetailLayanan />} />
       <Route path="/artikel" element={<Artikel />} />
       <Route path="/artikel/:artikel" element={<ArtikelDetail />} />
       <Route path="/tanya-dokter" element={<TanyaDokter />} />
@@ -61,6 +82,14 @@ export function RouteConfig() {
           <Logged>
             <Register />
           </Logged>
+        }
+      />
+      <Route
+        path="/register/provider"
+        element={
+          <LoggedProvider>
+            <RegisterProvider />
+          </LoggedProvider>
         }
       />
       <Route path="*" element={<Error />} />
