@@ -84,7 +84,9 @@ export function Header() {
                     }`}
                   >
                     <Link to="/profile">Your Profile</Link>
-                    <a>Settings</a>
+                    {data.as === "admin" && (
+                      <Link to="/dashbaord">Dashboard</Link>
+                    )}
                     <a onClick={handleSignOut} href="/">
                       Sign out
                     </a>

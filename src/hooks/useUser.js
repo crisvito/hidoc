@@ -9,15 +9,16 @@ export function useUser() {
 
   useEffect(() => {
     const getData = async () => {
-      const q = query(
-        collection(db, "users"),
-        where("email", "==", currentUser.email)
-      );
-
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setData(doc.data());
-      });
+      if (currentUser) {
+        const q = query(
+          collection(db, "users"),
+          where("uid", "==", currentUser.uid)
+        );
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          setData(doc.data());
+        });
+      }
     };
     getData();
   }, []);
