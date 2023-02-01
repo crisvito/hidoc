@@ -11,4 +11,8 @@ export const NavMenu = [
     path: "tanya-dokter",
     display: "Tanya Dokter",
   },
+  {
+    path: "dokter",
+    display: "Dokter",
+  },
 ];

@@ -6,6 +6,7 @@ import {
   TanyaDetail,
   TanyaDokter,
   Login,
+  Dashboard,
   Register,
   RegisterProvider,
   Profile,
@@ -34,8 +35,9 @@ export function RouteConfig() {
   };
 
   const Admin = ({ children }) => {
-    return data.as === "admin" ? children : <Navigate to="/" />;
+    if (data) return data.as == "admin" ? children : <Navigate to="/" />;
   };
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -59,7 +61,7 @@ export function RouteConfig() {
         path="/dashboard"
         element={
           <Admin>
-            <DetailLayanan />
+            <Dashboard />
           </Admin>
         }
       />
