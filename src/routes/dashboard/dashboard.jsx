@@ -1,3 +1,9 @@
+import { Sidebar } from "../../contents";
+
 export function Dashboard() {
-  return <div>Dashboard</div>;
+  return (
+    <div>
+      <Sidebar />
+    </div>
+  );
 }
