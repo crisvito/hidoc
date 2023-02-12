@@ -1,8 +1,8 @@
 export const layanans = [
   {
     id: 1,
-    name: "Vaksin Covid-19",
-    href: "vaksin-covid-19",
+    name: "Test Covid-19",
+    href: "test-covid-19",
     imageSrc: "/assets/img/services/vaksin-covid.jpg",
     imageAlt: "Vaksinasi covid-19",
   },

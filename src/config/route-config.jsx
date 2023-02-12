@@ -11,6 +11,7 @@ import {
   RegisterProvider,
   Profile,
   EditProfile,
+  TestCovid19,
   DetailLayanan,
 } from "../routes";
 import { Error } from ".";
@@ -35,7 +36,11 @@ export function RouteConfig() {
   };
 
   const Admin = ({ children }) => {
-    if (data) return data.as == "admin" ? children : <Navigate to="/" />;
+    return currentUser.email == "admin@hidoc.dev" ? (
+      children
+    ) : (
+      <Navigate to="/" />
+    );
   };
 
   return (
@@ -66,6 +71,7 @@ export function RouteConfig() {
         }
       />
       <Route path="/:layanan" element={<DetailLayanan />} />
+      <Route path="/test-covid-19" element={<TestCovid19 />} />
       <Route path="/artikel" element={<Artikel />} />
       <Route path="/artikel/:artikel" element={<ArtikelDetail />} />
       <Route path="/tanya-dokter" element={<TanyaDokter />} />
