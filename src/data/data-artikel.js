@@ -61,14 +61,14 @@ export const dataArticle = [
   },
   {
     id: 5,
-    title: "Kaya Serat dan Zat Besi, Ini 5 Manfaat Daun Kari",
-    slug: "kaya-serat-dan-Zat-besi-ini-5-manfaat-daun-kari",
-    urlImage: "/assets/img/article/daun-kari.jpg",
-    confirmBy: "Dr. Bahari",
+    title: "Manfaat Retinol dalam Skincare dan Cara Efektif Penggunaannya",
+    slug: "manfaat-retinol-dalam-skincare-dan-cara-efektif-penggunaannya",
+    urlImage: "/assets/img/article/manfaat-retinol.jpg",
+    confirmBy: "Dr. Soebardjo",
     articleDate: "10 januari 2023",
     articleTime: "17:12",
     excerpt:
-      "Tak hanya menjadi bahan masakan, daun kari ternyata punya berbagai khasiat kesehatan. Mulai dari mengatur gula darah, mencegah penyakit jantung sampai menurunkan risiko penyakit kanker.",
+      "Mencegah jerawat dan menyamarkan bekasnya jadi manfaat retinol. Bahan ini juga efektif mengurangi gejala penuaan, seperti bintik hitam, garis halus, dan keriput.",
     content:
       "<p>Jakarta – Daun kari kerap dijadikan bahan utama bumbu kari. Namun, fungsi daun kari bukan sebatas penambah cita rasa makanan saja. Tanaman asli India ini ternyata juga kerap dijadikan pengobatan tradisional. Salah satu khasiatnya adalah mengontrol gula darah</p><p>Melansir dari Healthline, penelitian pada hewan menunjukan kalau ekstraknya bisa menurunkan lonjakan kadar gula darah. Bukan itu saja, senyawa di dalamnya mampu mengurangi gejala diabetes, seperti nyeri saraf sampai kerusakan ginjal.</p><p>Dilansir dari laman Healthline, berikut sederet manfaat daun kari lainnya:</p><div><h1>1. Menurunkan Risiko Penyakit Jantung</h1><p>Penyebab utama penyakit jantung adalah kadar kolesterol yang terlalu tinggi. Nah, rutin mengonsumsi ekstrak daun kari disinyalir bisa menurunkan risiko ini. Sebab, penelitian pada tikus yang mengonsumsi ekstrak dedaunan ini mengalami penurunan kadar kolesterol dan trigliserida.</p><p>Hasilnya juga berkorelasi dengan tingginya jumlah alkaloid, senyawa yang bisa mengelola tekanan darah dan melawan infeksi mikroba. Kendati penelitiannya amat menjanjikan, hingga kini belum ada studi lanjut pada manusia.</p></div><div><h1>2. Menjaga Kesehatan Saraf</h1><p>Penelitian lain juga menunjukan kalau tanaman aromatik ini bisa melindungi sistem saraf dan otak. Melalui efek tersebut, kamu bisa terhindar dari penyakit Alzheimer maupun kondisi lain yang berhubungan dengan otak.</p><p>Sebuah studi pada tikus menemukan bahwa pengobatan ekstrak daun kari dalam dosis yang tinggi bisa meningkatkan kadar antioksidan pada otak.  Penelitian lain menunjukkan tikus yang mengonsumsi ekstrak kari selama 15 hari memiliki skor memori lebih tinggi.</p></div>",
     content2:
@@ -76,10 +76,10 @@ export const dataArticle = [
   },
   {
     id: 6,
-    title: "Cara Melindungi Anak dari Bahaya Infeksi Adenovirus",
-    slug: "cara-melindungi-anak-dari-bahaya-infeksi-adenovirus",
-    urlImage: "/assets/img/article/perlindungan-infeksi.jpg",
-    confirmBy: "Dr. Sukaji Buhanto",
+    title: "5  Cara Menjaga Kesehatan Fisik setelah Memasuki Menopause",
+    slug: "5-cara-menjaga-kesehatan-fisik-setelah-memasuki-menopause",
+    urlImage: "/assets/img/article/kesehatan-fisik.jpg",
+    confirmBy: "Dr. ahmad armen",
     articleDate: "1 januari 2023",
     articleTime: "10:12",
     excerpt:

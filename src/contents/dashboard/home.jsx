@@ -12,7 +12,7 @@ export function Home() {
             <div className="flex items-center px-5 py-6 shadow-sm rounded-md bg-white">
               <User size={55} />
               <div className="mx-5">
-                <h4 className="text-2xl font-semibold text-gray-700">882</h4>
+                <h4 className="text-2xl font-semibold text-gray-700">5</h4>
                 <div className="text-gray-500">Dokter</div>
               </div>
             </div>
@@ -22,7 +22,7 @@ export function Home() {
             <div className="flex items-center px-5 py-6 shadow-sm rounded-md bg-white">
               <FirstAid size={55} />
               <div className="mx-5">
-                <h4 className="text-2xl font-semibold text-gray-700">2,823</h4>
+                <h4 className="text-2xl font-semibold text-gray-700">15</h4>
                 <div className="text-gray-500">Pertanyaan</div>
               </div>
             </div>
@@ -32,7 +32,7 @@ export function Home() {
             <div className="flex items-center px-5 py-6 shadow-sm rounded-md bg-white">
               <Article size={55} />
               <div className="mx-5">
-                <h4 className="text-2xl font-semibold text-gray-700">10,200</h4>
+                <h4 className="text-2xl font-semibold text-gray-700">49</h4>
                 <div className="text-gray-500">Artikel Tersedia</div>
               </div>
             </div>
