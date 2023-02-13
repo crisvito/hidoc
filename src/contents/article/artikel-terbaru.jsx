@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function ArtikelTerbaru() {
   return (
-    <div className="mt-8 sm:px-9 px-7">
+    <div className="my-8 sm:px-9 px-7">
       <div class="flex items-center after:flex-1 after:border-t after:border-gray-500 after:mt-0.5">
         <h1 className="text-2xl text-center mx-2 mb-0">Artikel Terbaru</h1>
       </div>

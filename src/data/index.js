@@ -5,3 +5,4 @@ export * from "./data-pertanyaan";
 export * from "./data-artikel";
 export * from "./kecamatan";
 export * from "./test-covid";
+export * from "./dokter";
