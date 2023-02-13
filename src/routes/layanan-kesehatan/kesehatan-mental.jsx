@@ -1,6 +1,4 @@
-import { TestCovid } from "../../data";
 import { Layout } from "../../layouts";
-import { Link } from "react-router-dom";
 import { Button } from "../../components";
 
 export function KesehatanMental() {

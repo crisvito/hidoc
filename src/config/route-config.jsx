@@ -14,6 +14,7 @@ import {
   TestCovid19,
   DetailLayanan,
   KesehatanMental,
+  KesehatanJantung,
 } from "../routes";
 import { Error } from ".";
 import { useContext } from "react";
@@ -74,6 +75,7 @@ export function RouteConfig() {
       <Route path="/:layanan" element={<DetailLayanan />} />
       <Route path="/test-covid-19" element={<TestCovid19 />} />
       <Route path="/kesehatan-mental" element={<KesehatanMental />} />
+      <Route path="/kesehatan-jantung" element={<KesehatanJantung />} />
       <Route path="/artikel" element={<Artikel />} />
       <Route path="/artikel/:artikel" element={<ArtikelDetail />} />
       <Route path="/tanya-dokter" element={<TanyaDokter />} />
