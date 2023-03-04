@@ -5,3 +5,4 @@ export * from "./tanya-dokter";
 export * from "./profile";
 export * from "./dashboard";
 export * from "./layanan-kesehatan";
+export * from "./dokter";

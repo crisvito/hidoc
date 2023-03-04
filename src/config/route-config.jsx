@@ -14,16 +14,15 @@ import {
   TestCovid19,
   DetailLayanan,
   KesehatanMental,
+  Dokter,
   KesehatanJantung,
 } from "../routes";
 import { Error } from ".";
 import { useContext } from "react";
 import { AuthContext } from "../context";
-import { useUser } from "../hooks/useUser";
 
 export function RouteConfig() {
   const { currentUser } = useContext(AuthContext);
-  const { data } = useUser();
 
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
@@ -80,6 +79,7 @@ export function RouteConfig() {
       <Route path="/artikel/:artikel" element={<ArtikelDetail />} />
       <Route path="/tanya-dokter" element={<TanyaDokter />} />
       <Route path="/tanya-dokter/:tanya" element={<TanyaDetail />} />
+      <Route path="/dokter" element={<Dokter />} />
       <Route
         path="/login"
         element={

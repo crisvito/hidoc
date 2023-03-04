@@ -1,5 +1,5 @@
 import { Button } from "../../components";
-
+import { Link } from "react-router-dom";
 export function HomeHero() {
   return (
     <div className="flex justify-center pt-5 h-96">
@@ -12,10 +12,12 @@ export function HomeHero() {
             Chat dokter, kunjungi rumah sakit, beli obat, cek lab dan update
             informasi seputar kesehatan, semua bisa di Hidoc!
           </p>
-          <Button
-            children="Chat dengan dokter"
-            className="bg-blue-900 lg:w-5/12 md:w-2/5 w-3/4 py-3"
-          />
+          <Link to="/dokter" className="lg:w-5/12 md:w-2/5 w-3/4">
+            <Button
+              children="Chat dengan dokter"
+              className="bg-blue-900 py-3 px-7"
+            />
+          </Link>
         </div>
         <div className="lg:inline-flex w-[500px] hidden">
           <img

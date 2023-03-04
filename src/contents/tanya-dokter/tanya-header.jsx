@@ -11,7 +11,7 @@ export function TanyaHeader() {
               Bertanya seputar kesehatan yang dapat membantu anda
             </span>
           </div>
-          <form action="" className="flex items-center gap-1">
+          <form className="flex items-center gap-1">
             <input
               type="text"
               className="form-control block w-full px-5 pr-20 py-2 font-normal text-gray-700 bg-white border border-solid border-gray-400 rounded

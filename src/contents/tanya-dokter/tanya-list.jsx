@@ -1,4 +1,4 @@
-import { Button } from "../../components";
+import { Modal } from "../../components";
 import { dataPertanyaan } from "../../data";
 import { User } from "phosphor-react";
 import parse from "html-react-parser";
@@ -11,10 +11,7 @@ export function TanyaList() {
     <div className="flex flex-col items-center">
       <div className="w-3/4">
         <div>
-          <Button
-            children="Saya Ingin Bertanya..."
-            className="text-sm py-2 px-7"
-          />
+          <Modal />
         </div>
         <div className="py-10 flex justify-between items-start">
           <div className="flex flex-col gap-12">

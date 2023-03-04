@@ -80,7 +80,7 @@ export function Header() {
                 >
                   <div
                     className={`avatar  ${
-                      avatar ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                      avatar ? "opacity-100 scale-100" : "opacity-0 scale-0"
                     }`}
                   >
                     <Link to="/profile">Your Profile</Link>
